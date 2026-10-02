@@ -1,0 +1,101 @@
+@use "../../styles/foundation" as *;
+/* =======================================
+ * ストラテジックアライアンス採用 Hero Section スタイル
+ * URL: /src/components/sections/HeroSection.module.scss
+ * Referenced in: /src/components/sections/HeroSection.astro
+ * Created: 2026-10-02
+ * Last updated: 2026-10-02
+ * ======================================= */
+
+.containerHero {
+    position: relative;
+    aspect-ratio: 1440/682;
+    overflow: hidden;
+    color: $pure-white;
+    background: url(/src/assets/images/hero/hero-background.webp) no-repeat
+        center center/cover;
+    display: grid;
+    place-items: center;
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url(/src/assets/images/hero/hero-line.webp) no-repeat center
+            center/cover;
+        opacity: 0.4;
+    }
+
+    .decoration {
+        position: absolute;
+        z-index: 2;
+        top: -5%;
+        right: -5%;
+        width: 25%;
+        aspect-ratio: 607/608;
+    }
+
+    .boxContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        // padding-top: 160px;
+        font-size: inherit;
+        text-align: center;
+        z-index: 2;
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 33px;
+            padding: 0 20px;
+            color: $secondary;
+            font-size: fz(14);
+            font-weight: 500;
+            line-height: 1;
+            background-color: rgba($primary-blue, 0.7);
+            border: 1px solid $secondary;
+            border-radius: 100px;
+        }
+        .title {
+            width: min(760px, calc(100% - 160px));
+            margin-top: 28px;
+            font-size: fz(48);
+            font-weight: 700;
+            line-height: 1.4;
+            span {
+                display: block;
+                line-height: inherit;
+            }
+        }
+        .lead {
+            margin-top: 28px;
+            color: #e5e8ed;
+            font-size: fz(18);
+            line-height: 1.65;
+            span {
+                display: block;
+                line-height: inherit;
+            }
+        }
+        .entryButton {
+            @include focus-visible;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 184px;
+            height: 51px;
+            padding: 0 36px;
+            margin-top: 28px;
+            color: $primary-blue;
+            font-size: fz(16);
+            font-weight: 700;
+            background-color: $secondary;
+            border-radius: 4px;
+            transition: opacity 0.2s ease;
+            @include hover {
+                opacity: 0.82;
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+@use "../../styles/foundation" as *;
+/* =======================================
+ * ストラテジックアライアンス採用 Header スタイル
+ * URL: /src/components/common/Header.module.scss
+ * Referenced in: /src/components/common/Header.astro
+ * Created: 2026-10-02
+ * Last updated: 2026-10-02
+ * ======================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 105px;
+    border-bottom: 1px solid $border;
+    .inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1440px;
+        height: 100%;
+        padding: 20px min(5.5556vw, 80px);
+        margin: 0 auto;
+        font-size: inherit;
+        .logoLink {
+            display: block;
+            flex-shrink: 0;
+            width: 160px;
+            height: 65px;
+            @include focus-visible;
+            img {
+                display: block;
+                width: 160px;
+                height: 65px;
+                object-fit: contain;
+            }
+        }
+        .entryButton {
+            @include focus-visible;
+            display: inline-flex;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+            min-width: 184px;
+            height: 51px;
+            padding: 0 36px;
+            overflow: hidden;
+            color: $pure-white;
+            font-size: fz(16);
+            font-weight: 700;
+            background-color: $primary-blue;
+            border-radius: 4px;
+            transition: opacity 0.2s ease;
+            @include hover {
+                opacity: 0.82;
+            }
+        }
+    }
+}

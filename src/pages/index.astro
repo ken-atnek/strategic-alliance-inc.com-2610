@@ -4,14 +4,16 @@
  * URL: /src/pages/index.astro
  * Referenced in: /
  * Created: 2026-09-30
- * Last updated: 2026-09-30
+ * Last updated: 2026-10-02
  * ======================================= */
+import Header from "../components/common/Header.astro";
+import HeroSection from "../components/sections/HeroSection.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
+  <Header />
   <main id="main-content">
-    <h1 class="srOnly">株式会社ストラテジックアライアンス 採用サイト</h1>
+    <HeroSection />
   </main>
 </BaseLayout>
-

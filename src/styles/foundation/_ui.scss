@@ -1,0 +1,76 @@
+@use "./svg" as *;
+@use "./colors" as *;
+@use "./typography" as *;
+@use "./settings" as *;
+@use "./breakpoints" as *;
+@use "./interaction" as *;
+/* =======================================
+ * ふもと旅館採用 共通UI mixin
+ * URL: /src/styles/foundation/_ui.scss
+ * Referenced in: /src/styles/foundation/_index.scss, /src/styles/globals.scss
+ * Created: 2026-07-07
+ * Last updated: 2026-09-21
+ * Created source: ファイル作成日時（移植元由来）
+ * ======================================= */
+
+/* =========================================
+ドロップシャドウ
+----------------------------------------- */
+@mixin drop-shadow {
+    box-shadow: 2px 2px 3px 0 rgb(53 45 32 / 15%);
+}
+
+@mixin flex-center($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin border-gradient {
+    background-image: repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent 159px,
+        #efefef 159px,
+        #efefef 160px
+    );
+    @include sp {
+        background-image: repeating-linear-gradient(
+            to right,
+            transparent 0,
+            transparent 25vw,
+            #efefef 25vw,
+            #efefefca calc(25vw + 1px)
+        );
+    }
+}
+
+/* =========================================
+縦書きタイトル
+----------------------------------------- */
+@mixin heading-title() {
+    position: absolute;
+    width: fit-content;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem 0;
+    // left: 0;
+    // color: $pure-black;
+    .headingEnglish {
+        font-size: fz(16);
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        writing-mode: vertical-rl; //縦書き
+        padding-left: 0.5em;
+    }
+    .headingJapanese {
+        font-size: fz(28);
+        font-weight: 900;
+        letter-spacing: 0.2em;
+        writing-mode: vertical-rl; //縦書き
+        text-orientation: upright; //縦書き英数回転
+    }
+}
