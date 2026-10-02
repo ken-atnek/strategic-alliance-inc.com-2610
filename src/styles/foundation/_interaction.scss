@@ -1,0 +1,21 @@
+/* =======================================
+ * ストラテジックアライアンス採用 インタラクション定義
+ * URL: /src/styles/foundation/_interaction.scss
+ * Referenced in: /src/styles/foundation/_index.scss
+ * Created: 2026-09-30
+ * Last updated: 2026-10-02
+ * ======================================= */
+
+@mixin hover {
+  @media (hover: hover) {
+    &:where(:any-link, :enabled, summary):hover {
+      @content;
+    }
+  }
+}
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid currentcolor;
+    outline-offset: 3px;
+  }
+}

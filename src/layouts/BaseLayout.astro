@@ -1,0 +1,54 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 共通レイアウト
+ * URL: /src/layouts/BaseLayout.astro
+ * Referenced in: /src/pages/
+ * Created: 2026-09-30
+ * Last updated: 2026-09-30
+ * ======================================= */
+import "../styles/globals.scss";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "株式会社ストラテジックアライアンス 採用サイト",
+  description =
+    "株式会社ストラテジックアライアンスの採用情報をご案内します。",
+} = Astro.props;
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL?.trim();
+const canonicalUrl = siteUrl
+  ? new URL(Astro.url.pathname, new URL(siteUrl))
+  : undefined;
+const isDemo = import.meta.env.SITE_ENV !== "production";
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={isDemo ? "noindex, nofollow" : "index, follow"}
+    />
+
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

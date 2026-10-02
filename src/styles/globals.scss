@@ -1,0 +1,94 @@
+@use "./foundation/reset";
+@use "./global/base";
+@use "./utilities/accessibility";
+/* =======================================
+ * ストラテジックアライアンス採用 グローバルスタイル
+ * URL: /src/styles/globals.scss
+ * Referenced in: /src/layouts/BaseLayout.astro
+ * Created: 2026-09-30
+ * Last updated: 2026-10-02
+ * ======================================= */
+
+html {
+    // scroll-behavior: auto;
+}
+
+body {
+    @include zen-kaku-gothic-antique;
+    font-size: clamp(1.2rem, calc($base-vw * 1vw) + calc($slice * 1px), 1.6rem);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: space-between;
+    width: 100%;
+    color: $main-sub-black;
+    @include tbw {
+        overflow-x: clip;
+    }
+    @include tb {
+        font-size: 1.4vw;
+    }
+    @include sp {
+        font-size: 3.6vw;
+    }
+}
+
+main {
+    font-size: inherit;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+section,
+article,
+header,
+footer {
+    width: 100%;
+    position: relative;
+    font-size: inherit;
+    z-index: 1;
+}
+
+svg {
+    width: 100%;
+    fill: unset;
+    stroke: unset;
+}
+
+br {
+    &.pc {
+        @include sp {
+            display: none;
+        }
+    }
+    &.sp {
+        display: none;
+        @include sp {
+            display: inline;
+        }
+    }
+}
+
+@include pc {
+    a[href^="tel:"] {
+        pointer-events: none;
+        cursor: default;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}

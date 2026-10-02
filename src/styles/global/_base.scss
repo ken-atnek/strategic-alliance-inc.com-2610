@@ -1,0 +1,65 @@
+@use "../foundation" as *;
+/* =======================================
+ * ストラテジックアライアンス採用 基本スタイル
+ * URL: /src/styles/global/_base.scss
+ * Referenced in: /src/styles/globals.scss
+ * Created: 2026-10-02
+ * Last updated: 2026-10-02
+ * ======================================= */
+
+:root {
+  color-scheme: light;
+  --color-primary: #{$primary};
+  --color-secondary: #{$secondary};
+  --color-background: #{$background};
+  --color-surface: #{$surface};
+  --color-text-primary: #{$text-primary};
+  --color-text-secondary: #{$text-secondary};
+  --color-border: #{$border};
+  --layout-design-width: #{$design-width};
+  --layout-content-width: #{$content-width};
+  --layout-content-padding: #{$content-padding};
+  --layout-form-width: #{$form-width};
+}
+
+html {
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  scroll-behavior: smooth;
+}
+
+body {
+  @include font-base;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  font-size: 1rem;
+  font-weight: $font-weight-regular;
+  line-height: 1.7;
+}
+
+main {
+  width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+summary {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+

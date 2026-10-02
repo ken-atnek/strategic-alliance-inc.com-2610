@@ -1,0 +1,21 @@
+{
+  "name": "strategic-alliance-recruit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build --mode demo",
+    "build:demo": "ASTRO_TELEMETRY_DISABLED=1 astro build --mode demo",
+    "build:production": "ASTRO_TELEMETRY_DISABLED=1 astro build --mode production",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "check": "ASTRO_TELEMETRY_DISABLED=1 astro check"
+  },
+  "dependencies": {
+    "astro": "7.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "sass": "1.104.1",
+    "typescript": "6.0.3"
+  }
+}

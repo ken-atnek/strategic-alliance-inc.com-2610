@@ -1,0 +1,12 @@
+/* =======================================
+ * ストラテジックアライアンス採用 foundation 公開エントリー
+ * URL: /src/styles/foundation/_index.scss
+ * Referenced in: /src/components/
+ * Created: 2026-09-30
+ * Last updated: 2026-10-02
+ * ======================================= */
+
+@forward "colors";
+@forward "settings";
+@forward "typography";
+@forward "interaction";

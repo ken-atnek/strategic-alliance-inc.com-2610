@@ -1,0 +1,19 @@
+/* =======================================
+ * ストラテジックアライアンス採用 フォント定義
+ * URL: /src/styles/foundation/_typography.scss
+ * Referenced in: /src/styles/foundation/_index.scss, /src/styles/globals.scss
+ * Created: 2026-09-30
+ * Last updated: 2026-10-02
+ * ======================================= */
+
+$font-family-base:
+  "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+  sans-serif;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+@mixin font-base {
+  font-family: $font-family-base;
+}
