@@ -1,0 +1,45 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 応募完了画面
+ * URL: /src/components/forms/EntryComplete.astro
+ * Referenced in: /src/components/forms/EntryForm.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import { Image } from "astro:assets";
+
+import logo from "../../assets/images/entry/logo.png";
+import styles from "./EntryForm.module.scss";
+---
+
+<section
+  class={styles.completion}
+  aria-labelledby="entry-complete-title"
+  data-entry-step="complete"
+  aria-live="polite"
+  hidden
+>
+  <Image
+    class={styles.completionLogo}
+    src={logo}
+    alt="株式会社ストラテジックアライアンス"
+    width={180}
+    height={73}
+  />
+
+  <div class={styles.completionIcon} aria-hidden="true">✓</div>
+
+  <h1 id="entry-complete-title" class={styles.completionTitle} tabindex="-1">
+    ご応募ありがとうございました。
+  </h1>
+
+  <div class={styles.completionMessage}>
+    <p>
+      いただいた内容は担当者が確認のうえ、<br />
+      改めてご連絡させていただきます。
+    </p>
+    <p>今しばらくお待ちください。</p>
+  </div>
+
+  <a class={styles.completionLink} href="/">トップページへ戻る</a>
+</section>

@@ -1,0 +1,84 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 入力内容確認画面
+ * URL: /src/components/forms/EntryConfirm.astro
+ * Referenced in: /src/components/forms/EntryForm.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import styles from "./EntryForm.module.scss";
+---
+
+<section
+  class={`${styles.body} ${styles.confirmBody}`}
+  aria-labelledby="entry-confirm-title"
+  data-entry-step="confirm"
+  hidden
+>
+  <h1 id="entry-confirm-title" class={styles.title} tabindex="-1">
+    入力内容のご確認
+  </h1>
+  <p class={styles.introduction}>
+    送信前に、ご入力内容にお間違いがないかご確認ください。
+  </p>
+
+  <dl class={styles.confirmList}>
+    <div class={styles.confirmRow}>
+      <dt>氏名</dt>
+      <dd data-entry-confirm="fullName">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>メールアドレス</dt>
+      <dd data-entry-confirm="email">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>電話番号</dt>
+      <dd data-entry-confirm="phoneNumber">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>保険業界での経験年数</dt>
+      <dd data-entry-confirm="insuranceExperienceYears">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>マネジメント経験の有無</dt>
+      <dd data-entry-confirm="managementExperience">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>直近の勤務先</dt>
+      <dd data-entry-confirm="latestEmployer">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>職務経歴書</dt>
+      <dd data-entry-confirm="resumeFile">未選択</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>志望動機</dt>
+      <dd data-entry-confirm="motivation">未入力</dd>
+    </div>
+  </dl>
+
+  <p class={styles.confirmNote}>
+    ※ 各項目の内容を修正したい場合は「戻る」から該当のステップに戻って編集できます。
+  </p>
+
+  <p
+    class={styles.submitStatus}
+    role="status"
+    aria-live="polite"
+    data-entry-submit-status
+    hidden
+  ></p>
+
+  <div class={`${styles.actions} ${styles.actionsBetween}`}>
+    <button class={styles.backButton} type="button" data-entry-go="4">
+      戻る
+    </button>
+    <button
+      class={styles.submitButton}
+      type="button"
+      data-entry-submit
+    >
+      この内容で送信する
+    </button>
+  </div>
+</section>

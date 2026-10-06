@@ -1,0 +1,21 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 エントリーページ
+ * URL: /src/pages/entry/index.astro
+ * Referenced in: /entry/
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import EntryForm from "../../components/forms/EntryForm.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import styles from "./index.module.scss";
+---
+
+<BaseLayout
+  title="エントリー | 株式会社ストラテジックアライアンス 採用サイト"
+  description="株式会社ストラテジックアライアンスの採用エントリーフォームです。"
+>
+  <main class={styles.page} id="main-content">
+    <EntryForm />
+  </main>
+</BaseLayout>

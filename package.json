@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
-    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build --mode demo",
+    "build": "npm run build:demo",
     "build:demo": "ASTRO_TELEMETRY_DISABLED=1 astro build --mode demo",
     "build:production": "ASTRO_TELEMETRY_DISABLED=1 astro build --mode production",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",

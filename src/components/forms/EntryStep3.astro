@@ -1,0 +1,187 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 エントリーフォーム Step 3
+ * URL: /src/components/forms/EntryStep3.astro
+ * Referenced in: /src/components/forms/EntryForm.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import styles from "./EntryForm.module.scss";
+---
+
+<section
+  class={styles.body}
+  aria-labelledby="entry-step-3-title"
+  data-entry-step="3"
+  hidden
+>
+  <h1 id="entry-step-3-title" class={styles.title} tabindex="-1">
+    保有資格と、これまでの職務経歴をご入力ください。
+  </h1>
+  <p class={styles.introduction}>
+    職務経歴書をお持ちの方はアップロードしてください。
+  </p>
+
+  <div class={`${styles.fields} ${styles.careerFields}`}>
+    <fieldset class={styles.choiceField}>
+      <legend>
+        生命保険募集人資格 <span aria-hidden="true">*</span><span
+          class="sr-only">必須</span
+        >
+      </legend>
+      <div class={styles.choices}>
+        <label>
+          <input
+            name="lifeInsuranceQualification"
+            type="radio"
+            value="保有"
+            checked
+            required
+          />
+          <span>保有</span>
+        </label>
+        <label>
+          <input
+            name="lifeInsuranceQualification"
+            type="radio"
+            value="未保有"
+            required
+          />
+          <span>未保有</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class={styles.choiceField}>
+      <legend>
+        損害保険募集人資格 <span aria-hidden="true">*</span><span
+          class="sr-only">必須</span
+        >
+      </legend>
+      <div class={styles.choices}>
+        <label>
+          <input
+            name="nonLifeInsuranceQualification"
+            type="radio"
+            value="保有"
+            required
+          />
+          <span>保有</span>
+        </label>
+        <label>
+          <input
+            name="nonLifeInsuranceQualification"
+            type="radio"
+            value="未保有"
+            checked
+            required
+          />
+          <span>未保有</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class={styles.choiceField}>
+      <legend>FP資格</legend>
+      <div class={styles.choices}>
+        <label>
+          <input name="fpQualification" type="radio" value="保有" />
+          <span>保有</span>
+        </label>
+        <label>
+          <input name="fpQualification" type="radio" value="未保有" checked />
+          <span>未保有</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <div class={styles.field}>
+      <label for="other-qualifications">その他保有資格</label>
+      <input
+        id="other-qualifications"
+        name="otherQualifications"
+        type="text"
+        placeholder="自由入力"
+      />
+    </div>
+
+    <div class={styles.field}>
+      <label for="latest-employer">
+        直近の勤務先 <span aria-hidden="true">*</span><span class="sr-only"
+          >必須</span
+        >
+      </label>
+      <input
+        id="latest-employer"
+        name="latestEmployer"
+        type="text"
+        autocomplete="organization"
+        placeholder="会社名をご入力ください"
+        required
+      />
+    </div>
+
+    <div class={styles.field}>
+      <label for="management-team-size">マネジメント人数</label>
+      <input
+        id="management-team-size"
+        name="managementTeamSize"
+        type="text"
+        inputmode="numeric"
+        placeholder="例：5名"
+      />
+    </div>
+
+    <div class={`${styles.field} ${styles.fieldWide}`}>
+      <label for="work-experience">
+        経験業務 <span aria-hidden="true">*</span><span class="sr-only"
+          >必須</span
+        >
+      </label>
+      <textarea
+        id="work-experience"
+        name="workExperience"
+        placeholder="これまでご担当された業務内容をご入力ください"
+        required></textarea>
+    </div>
+
+    <div class={`${styles.field} ${styles.fieldWide}`}>
+      <label for="achievements">
+        主な実績 <span aria-hidden="true">*</span><span class="sr-only"
+          >必須</span
+        >
+      </label>
+      <textarea
+        id="achievements"
+        name="achievements"
+        placeholder="採用実績・売上実績など"
+        required></textarea>
+    </div>
+
+    <div class={`${styles.uploadField} ${styles.fieldWide}`}>
+      <label class={styles.uploadLabel} for="resume-file">
+        職務経歴書アップロード
+      </label>
+      <input
+        class={styles.fileInput}
+        id="resume-file"
+        name="resumeFile"
+        type="file"
+        accept=".pdf,.doc,.docx"
+        data-entry-file-input
+      />
+      <label class={styles.fileButton} for="resume-file">
+        <span data-entry-file-label>＋ ファイルを選択（PDF・Word）</span>
+      </label>
+    </div>
+  </div>
+
+  <div class={`${styles.actions} ${styles.actionsBetween}`}>
+    <button class={styles.backButton} type="button" data-entry-go="2">
+      戻る
+    </button>
+    <button class={styles.nextButton} type="button" data-entry-go="4">
+      次へ（自由入力）
+    </button>
+  </div>
+</section>

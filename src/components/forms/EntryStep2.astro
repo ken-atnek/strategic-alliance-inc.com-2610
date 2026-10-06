@@ -1,0 +1,225 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 エントリーフォーム Step 2
+ * URL: /src/components/forms/EntryStep2.astro
+ * Referenced in: /src/components/forms/EntryForm.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import styles from "./EntryForm.module.scss";
+---
+
+<section
+  class={styles.body}
+  aria-labelledby="entry-step-2-title"
+  data-entry-step="2"
+  hidden
+>
+  <h1 id="entry-step-2-title" class={styles.title} tabindex="-1">
+    これまでのご経験について教えてください。
+  </h1>
+  <p class={styles.introduction}>
+    保険・金融・営業・マネジメント領域での経験年数や有無をお伺いします。
+  </p>
+
+  <div class={`${styles.fields} ${styles.experienceFields}`}>
+    <div class={styles.field}>
+      <label for="insurance-experience-years">
+        保険業界での経験年数 <span aria-hidden="true">*</span><span
+          class="sr-only">必須</span
+        >
+      </label>
+      <select
+        id="insurance-experience-years"
+        name="insuranceExperienceYears"
+        required
+      >
+        <option value="0">未経験</option>
+        <option value="less-than-1">1年未満</option>
+        <option value="1">1年</option>
+        <option value="2">2年</option>
+        <option value="3" selected>3年</option>
+        <option value="4">4年</option>
+        <option value="5">5年</option>
+        <option value="6">6年</option>
+        <option value="7">7年</option>
+        <option value="8">8年</option>
+        <option value="9">9年</option>
+        <option value="10-plus">10年以上</option>
+      </select>
+    </div>
+
+    <div class={styles.field}>
+      <label for="finance-experience-years">
+        金融業界での経験年数 <span aria-hidden="true">*</span><span
+          class="sr-only">必須</span
+        >
+      </label>
+      <select
+        id="finance-experience-years"
+        name="financeExperienceYears"
+        required
+      >
+        <option value="0">未経験</option>
+        <option value="less-than-1">1年未満</option>
+        <option value="1">1年</option>
+        <option value="2" selected>2年</option>
+        <option value="3">3年</option>
+        <option value="4">4年</option>
+        <option value="5">5年</option>
+        <option value="6">6年</option>
+        <option value="7">7年</option>
+        <option value="8">8年</option>
+        <option value="9">9年</option>
+        <option value="10-plus">10年以上</option>
+      </select>
+    </div>
+
+    <div class={styles.field}>
+      <label for="sales-experience-years">
+        営業経験年数 <span aria-hidden="true">*</span><span class="sr-only"
+          >必須</span
+        >
+      </label>
+      <select id="sales-experience-years" name="salesExperienceYears" required>
+        <option value="0">未経験</option>
+        <option value="less-than-1">1年未満</option>
+        <option value="1">1年</option>
+        <option value="2">2年</option>
+        <option value="3">3年</option>
+        <option value="4">4年</option>
+        <option value="5" selected>5年</option>
+        <option value="6">6年</option>
+        <option value="7">7年</option>
+        <option value="8">8年</option>
+        <option value="9">9年</option>
+        <option value="10-plus">10年以上</option>
+      </select>
+    </div>
+
+    <fieldset class={styles.choiceField}>
+      <legend>
+        マネジメント経験の有無 <span aria-hidden="true">*</span><span
+          class="sr-only">必須</span
+        >
+      </legend>
+      <div class={styles.choices}>
+        <label>
+          <input
+            name="managementExperience"
+            type="radio"
+            value="あり"
+            checked
+            required
+          />
+          <span>あり</span>
+        </label>
+        <label>
+          <input
+            name="managementExperience"
+            type="radio"
+            value="なし"
+            required
+          />
+          <span>なし</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class={styles.choiceField}>
+      <legend>
+        採用・育成・教育経験の有無 <span aria-hidden="true">*</span><span
+          class="sr-only">必須</span
+        >
+      </legend>
+      <div class={styles.choices}>
+        <label>
+          <input
+            name="trainingExperience"
+            type="radio"
+            value="あり"
+            checked
+            required
+          />
+          <span>あり</span>
+        </label>
+        <label>
+          <input
+            name="trainingExperience"
+            type="radio"
+            value="なし"
+            required
+          />
+          <span>なし</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class={styles.choiceField}>
+      <legend>
+        労務管理経験の有無 <span aria-hidden="true">*</span><span
+          class="sr-only">必須</span
+        >
+      </legend>
+      <div class={styles.choices}>
+        <label>
+          <input
+            name="laborManagementExperience"
+            type="radio"
+            value="あり"
+            required
+          />
+          <span>あり</span>
+        </label>
+        <label>
+          <input
+            name="laborManagementExperience"
+            type="radio"
+            value="なし"
+            checked
+            required
+          />
+          <span>なし</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class={`${styles.choiceField} ${styles.fieldWide}`}>
+      <legend>
+        保険募集管理やコンプライアンス関連経験の有無 <span
+          aria-hidden="true">*</span
+        ><span class="sr-only">必須</span>
+      </legend>
+      <div class={styles.choices}>
+        <label>
+          <input
+            name="complianceExperience"
+            type="radio"
+            value="あり"
+            required
+          />
+          <span>あり</span>
+        </label>
+        <label>
+          <input
+            name="complianceExperience"
+            type="radio"
+            value="なし"
+            checked
+            required
+          />
+          <span>なし</span>
+        </label>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class={`${styles.actions} ${styles.actionsBetween}`}>
+    <button class={styles.backButton} type="button" data-entry-go="1">
+      戻る
+    </button>
+    <button class={styles.nextButton} type="button" data-entry-go="3">
+      次へ（保有資格・職務経歴）
+    </button>
+  </div>
+</section>

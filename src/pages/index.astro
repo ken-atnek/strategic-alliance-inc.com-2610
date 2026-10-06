@@ -21,17 +21,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <Header />
+  <Header entryHref="/entry/" />
   <main id="main-content">
-    <HeroSection />
+    <HeroSection entryHref="/entry/" />
     <MessageSection />
     <JobSection />
     <RewardSection />
     <PersonaSection />
     <EnvironmentSection />
-    <RequirementsSection />
-    <EntrySection />
-    <FinalCtaSection />
+    <RequirementsSection detailHref="/entry/" />
+    <EntrySection entryHref="/entry/" />
+    <FinalCtaSection entryHref="/entry/" />
   </main>
   <Footer />
 </BaseLayout>
