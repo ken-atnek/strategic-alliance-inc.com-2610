@@ -1,0 +1,42 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 Persona Section
+ * URL: /src/components/sections/PersonaSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-10-05
+ * Last updated: 2026-10-05
+ * ======================================= */
+
+import styles from "./PersonaSection.module.scss";
+
+const personaItems = [
+  "保険、金融、営業領域での経験を活かしたい方",
+  "採用や人材育成、マネジメントに関心がある方",
+  "数字管理や業務改善に前向きに取り組める方",
+  "コンプライアンスや業務品質を大切にできる方",
+  "相手の立場に立って誠実にコミュニケーションできる方",
+];
+---
+
+<section class={styles.containerPersona} aria-labelledby="persona-title">
+  <div class={styles.inner}>
+    <div class={styles.heading}>
+      <h2 id="persona-title">求める人物像</h2>
+      <p>
+        保険・金融の経験を、「人を育てる仕事」に活かしたい方をお待ちしています。
+      </p>
+    </div>
+    <ul class={styles.personaList}>
+      {
+        personaItems.map((item) => (
+          <li>
+            <span class={styles.check} aria-hidden="true">
+              ✓
+            </span>
+            <p>{item}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

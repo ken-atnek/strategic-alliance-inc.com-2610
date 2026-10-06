@@ -1,0 +1,96 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 Requirements Section
+ * URL: /src/components/sections/RequirementsSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import { Image } from "astro:assets";
+
+import styles from "./RequirementsSection.module.scss";
+
+interface Props {
+  detailHref?: string;
+}
+
+const { detailHref = "#" } = Astro.props;
+
+const requirements = [
+  {
+    label: "募集職種",
+    value: "保険募集人 採用・育成・マネジメント担当",
+  },
+  {
+    label: "仕事内容",
+    value:
+      "各営業部にて、保険募集人（ファイナンシャル・アドバイザー）の採用、育成・教育、マネジメント業務全般を担当。採用計画に基づく採用実務、売上予算達成・生産性向上、教育・管理・指導、業務品質向上、リスク管理・コンプライアンス、取引先保険会社との連携。",
+  },
+  {
+    label: "雇用形態",
+    value: "正社員",
+    temporary: true,
+  },
+  {
+    label: "勤務地",
+    value: "各営業拠点（詳細はお問い合わせください）",
+    temporary: true,
+  },
+  {
+    label: "勤務時間",
+    value: "詳細はお問い合わせください",
+    temporary: true,
+  },
+  {
+    label: "給与",
+    value: "詳細はお問い合わせください（経験・能力を考慮の上、決定）",
+    temporary: true,
+  },
+  {
+    label: "休日休暇",
+    value: "詳細は下層ページをご確認ください",
+    temporary: true,
+  },
+  {
+    label: "福利厚生",
+    value: "詳細は下層ページをご確認ください",
+    temporary: true,
+  },
+  {
+    label: "応募資格",
+    value: "保険・金融・営業いずれかの実務経験をお持ちの方",
+    temporary: true,
+  },
+  {
+    label: "歓迎条件",
+    value: "採用・人材育成・マネジメント経験をお持ちの方",
+    temporary: true,
+  },
+];
+---
+
+<section
+  id="requirements"
+  class={styles.containerRequirements}
+  aria-labelledby="requirements-title"
+>
+  <div class={styles.inner}>
+    <h2 id="requirements-title">募集要項</h2>
+
+    <dl class={styles.requirementsList}>
+      {
+        requirements.map((item) => (
+          <div class={styles.requirementsItem}>
+            <dt>
+              <span>{item.label}</span>
+              {item.temporary && <span class={styles.temporary}>仮</span>}
+            </dt>
+            <dd>{item.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <a class={styles.detailButton} href={detailHref}> エントリーする </a>
+  </div>
+</section>

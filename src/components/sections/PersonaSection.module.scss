@@ -1,0 +1,92 @@
+@use "../../styles/foundation" as *;
+/* =======================================
+ * ストラテジックアライアンス採用 Persona Section スタイル
+ * URL: /src/components/sections/PersonaSection.module.scss
+ * Referenced in: /src/components/sections/PersonaSection.astro
+ * Created: 2026-10-05
+ * Last updated: 2026-10-05
+ * ======================================= */
+
+.containerPersona {
+    position: relative;
+    padding-top: 123px;
+    padding-bottom: 75px;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+    }
+    &::before {
+        background: url(/src/assets/images/persona/persona-bg.webp) no-repeat
+            right center / contain;
+    }
+    &::after {
+        background-image: linear-gradient(
+            to right,
+            rgba(#fff, 1),
+            rgba(#fff, 1) 30%,
+            rgba(#fff, 0)
+        );
+    }
+    .inner {
+        position: relative;
+        width: 100%;
+        font-size: inherit;
+        padding-left: min(12vw, 172px);
+        .heading {
+            font-size: inherit;
+            h2 {
+                color: $text-primary;
+                font-size: fz(32);
+                font-weight: 700;
+                line-height: 38px;
+            }
+            p {
+                margin-top: 16px;
+                color: $text-secondary;
+                font-size: fz(16);
+                line-height: 19px;
+            }
+        }
+        .personaList {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: max-content;
+            max-width: 89rem;
+            margin-top: 70px;
+            font-size: inherit;
+
+            li {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                height: 60px;
+                padding: 18px 8px;
+                font-size: inherit;
+                border-bottom: 1px solid $border;
+                .check {
+                    display: grid;
+                    flex: 0 0 24px;
+                    width: 24px;
+                    height: 24px;
+                    color: $pure-white;
+                    font-size: fz(13);
+                    font-weight: 700;
+                    line-height: 1;
+                    background-color: $secondary;
+                    border-radius: 50%;
+                    place-items: center;
+                }
+                p {
+                    color: $text-primary;
+                    font-size: fz(16);
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+        }
+    }
+}

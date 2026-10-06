@@ -1,0 +1,128 @@
+@use "../../styles/foundation" as *;
+/* =======================================
+ * ストラテジックアライアンス採用 Requirements Section スタイル
+ * URL: /src/components/sections/RequirementsSection.module.scss
+ * Referenced in: /src/components/sections/RequirementsSection.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+
+.containerRequirements {
+    position: relative;
+    background: url("/src/assets/images/requirements/requirements-bg.webp")
+        no-repeat center center/cover;
+    padding: 143px 4vw 137px;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 1rem;
+        right: 3rem;
+        background: url(../../assets/images/common/object-triangle.webp)
+            no-repeat center center/contain;
+        aspect-ratio: 1;
+        width: 16rem;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        top: -5rem;
+        left: -12rem;
+        width: 29rem;
+        background: url("../../assets/images/common/object-line.webp") no-repeat
+            center center/contain;
+        aspect-ratio: 570/397;
+        z-index: 2;
+    }
+
+    .inner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: inherit;
+        h2 {
+            color: $text-primary;
+            font-size: fz(32);
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: center;
+        }
+    }
+
+    .requirementsList {
+        width: min(856px, 100%);
+        margin-top: 48px;
+        background-color: $pure-white;
+        border: 1px solid $border;
+        border-radius: 8px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        font-size: inherit;
+        .requirementsItem {
+            display: grid;
+            grid-column: span 2;
+            grid-template-columns: subgrid;
+            align-items: center;
+            padding: 2rem 3.2rem;
+            gap: 0 5rem;
+            font-size: inherit;
+            &:nth-child(2n) {
+                background-color: #faf9f6;
+            }
+            &:last-of-type {
+                border-radius: 0 0 8px 8px;
+            }
+            dt {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 6px;
+                color: $primary-blue;
+                font-size: fz(15);
+                font-weight: 700;
+                line-height: 1.2;
+                span {
+                    font-size: inherit;
+                    line-height: inherit;
+                }
+                .temporary {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 2px 7px;
+                    color: $pure-white;
+                    font-size: 10px !important;
+                    font-weight: 700;
+                    line-height: 1.2 !important;
+                    background-color: $secondary;
+                    border-radius: 3px;
+                }
+            }
+            dd {
+                color: $text-secondary;
+                font-size: fz(15);
+                line-height: 1.6;
+            }
+        }
+    }
+
+    .detailButton {
+        @include focus-visible;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 184px;
+        height: 51px;
+        padding: 0 36px;
+        margin-top: 28px;
+        color: $primary-blue;
+        font-size: fz(16);
+        font-weight: 700;
+        background-color: $secondary;
+        border-radius: 4px;
+        transition: opacity 0.2s ease;
+        @include hover {
+            opacity: 0.82;
+        }
+    }
+}

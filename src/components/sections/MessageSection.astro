@@ -1,0 +1,36 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 Message Section
+ * URL: /src/components/sections/MessageSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-10-05
+ * Last updated: 2026-10-05
+ * ======================================= */
+import { Image } from "astro:assets";
+
+import messagePhoto from "../../assets/images/message/message-photo-01.jpg";
+import styles from "./MessageSection.module.scss";
+---
+
+<section class={styles.containerMessage} aria-labelledby="message-title">
+  <div class={styles.inner}>
+    <div class={styles.boxContent}>
+      <h2 id="message-title">採用メッセージ</h2>
+
+      <div class={styles.copy}>
+        <p>
+          保険募集人一人ひとりが、自分らしく力を発揮できる環境をつくること。
+        </p>
+        <p>
+          採用計画に基づいた人材の採用から、教育・管理・指導、そして業務品質の向上まで。<br
+          />
+          「営業を支援する」だけでなく、「組織そのものを育てる」役割を担います。
+        </p>
+        <p>
+          保険募集人が力を発揮できれば、お客様に届く安心も大きくなる。<br />
+          私たちは、その循環をつくる仕事です。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

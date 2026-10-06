@@ -1,0 +1,50 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 Footer
+ * URL: /src/components/common/Footer.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import { Image } from "astro:assets";
+
+import logo from "../../assets/images/header/logo.webp";
+import styles from "./Footer.module.scss";
+
+interface Props {
+  companyHref?: string;
+  requirementsHref?: string;
+  privacyHref?: string;
+}
+
+const {
+  companyHref = "#",
+  requirementsHref = "#",
+  privacyHref = "#",
+} = Astro.props;
+---
+
+<footer class={styles.footer}>
+  <div class={styles.topRow}>
+    <a
+      class={styles.logoLink}
+      href="/"
+      aria-label="株式会社ストラテジックアライアンス 採用サイト トップ"
+    >
+      <Image
+        src={logo}
+        alt="株式会社ストラテジックアライアンス"
+        width={140}
+        height={57}
+      />
+    </a>
+    <nav class={styles.navigation} aria-label="フッターナビゲーション">
+      <a href={companyHref}>会社概要</a>
+      <a href={requirementsHref}>募集要項</a>
+      <a href={privacyHref}>プライバシーポリシー</a>
+    </nav>
+  </div>
+  <small class={styles.copyright}>
+    © Strategic Alliance Inc. All Rights Reserved.
+  </small>
+</footer>

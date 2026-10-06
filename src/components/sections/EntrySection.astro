@@ -1,0 +1,73 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 Entry Section
+ * URL: /src/components/sections/EntrySection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import styles from "./EntrySection.module.scss";
+
+interface Props {
+  entryHref?: string;
+}
+
+const { entryHref = "#" } = Astro.props;
+
+const steps = [
+  {
+    number: "Step 1",
+    title: "基本情報",
+  },
+  {
+    number: "Step 2",
+    title: "経験・スキル",
+  },
+  {
+    number: "Step 3",
+    title: "保有資格・職務経歴",
+    description: "職務経歴書アップロード対応",
+  },
+  {
+    number: "Step 4",
+    title: "自由入力",
+    description: "志望動機など",
+  },
+];
+---
+
+<section id="entry" class={styles.containerEntry} aria-labelledby="entry-title">
+  <div class={styles.inner}>
+    <div class={styles.heading}>
+      <h2 id="entry-title">エントリー</h2>
+      <p>
+        <span>あなたのこれまでの経験を、人を育て、組織をつくる仕事に活かしませんか。</span>
+        <span>エントリーは、以下の4ステップでご案内しています。</span>
+      </p>
+    </div>
+
+    <ol class={styles.steps}>
+      {
+        steps.map((step) => (
+          <li class={styles.stepItem}>
+            <p class={styles.stepNumber}>{step.number}</p>
+            <h3>{step.title}</h3>
+            {step.description && (
+              <p class={styles.stepDescription}>{step.description}</p>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class={styles.notes}>
+      <p>ご入力の目安時間は約10〜15分程度です。</p>
+      <p>
+        各ステップで入力内容を確認しながら進められるので、途中の内容確認や前のステップへの戻り操作も簡単です。
+      </p>
+      <p>最後に入力内容の確認画面がありますので、送信前にご確認いただけます。</p>
+    </div>
+
+    <a class={styles.entryButton} href={entryHref}>エントリーフォームへ進む</a>
+  </div>
+</section>

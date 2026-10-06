@@ -1,0 +1,44 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 Environment Section
+ * URL: /src/components/sections/EnvironmentSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import { Image } from "astro:assets";
+
+import environmentPhoto from "../../assets/images/environment/environment-photo.webp";
+import styles from "./EnvironmentSection.module.scss";
+---
+
+<section
+  class={styles.containerEnvironment}
+  aria-labelledby="environment-title"
+>
+  <div class={styles.inner}>
+    <div class={styles.content}>
+      <p class={styles.label}>働く環境</p>
+      <h2 id="environment-title">
+        知見を共有しながら、<br />
+        育成の力を高めていく。
+      </h2>
+      <div class={styles.description}>
+        <p>
+          私たちは、ストラテジーグループの一員として、保険・金融に関する知見を活かしながら働ける環境です。
+        </p>
+        <p>
+          一人で抱え込むのではなく、組織としてノウハウを共有しながら、保険募集人の採用・育成に取り組んでいます。
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="itemImage">
+    <Image
+      src={environmentPhoto}
+      alt="資料を囲んで意見を交わすメンバー"
+      width={454}
+      height={303}
+    />
+  </div>
+</section>

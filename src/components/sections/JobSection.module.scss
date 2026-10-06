@@ -1,0 +1,83 @@
+@use "../../styles/foundation" as *;
+/* =======================================
+ * ストラテジックアライアンス採用 Job Section スタイル
+ * URL: /src/components/sections/JobSection.module.scss
+ * Referenced in: /src/components/sections/JobSection.astro
+ * Created: 2026-10-05
+ * Last updated: 2026-10-05
+ * ======================================= */
+
+.containerJob {
+    background: $pure-white url("../../assets/images/job/job-bg.webp") no-repeat
+        center top / cover;
+    padding-block: 14rem;
+    padding-inline: 4vw;
+    &::before {
+        content: "";
+        position: absolute;
+        top: -5rem;
+        left: -12rem;
+        width: 29rem;
+        background: url("../../assets/images/common/object-line.webp") no-repeat
+            center center/contain;
+        aspect-ratio: 570/397;
+        z-index: 2;
+    }
+    .inner {
+        font-size: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 128rem;
+        .heading {
+            font-size: inherit;
+            text-align: center;
+            h2 {
+                color: $text-primary;
+                font-size: fz(32);
+                font-weight: 700;
+                line-height: 1.2;
+            }
+            p {
+                margin-top: 16px;
+                color: $text-secondary;
+                font-size: fz(16);
+                line-height: 1.2;
+            }
+        }
+    }
+    .cardGrid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: auto 1fr;
+        gap: 24px;
+        margin-top: 5.6rem;
+        font-size: inherit;
+        .card {
+            padding: 30px 28px;
+            font-size: inherit;
+            background-color: $pure-white;
+            border: 1px solid $border;
+            border-radius: 8px;
+            grid-row: span 2;
+            display: grid;
+            grid-template-rows: subgrid;
+            gap: 1.2rem 0;
+            h3 {
+                color: $primary-blue;
+                font-size: fz(18);
+                font-weight: 700;
+            }
+
+            p {
+                color: $text-secondary;
+                font-size: fz(14);
+                line-height: 1.65;
+            }
+        }
+    }
+
+    .isCompact {
+        height: 121px;
+    }
+}

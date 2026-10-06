@@ -1,0 +1,70 @@
+@use "../../styles/foundation" as *;
+/* =======================================
+ * ストラテジックアライアンス採用 Environment Section スタイル
+ * URL: /src/components/sections/EnvironmentSection.module.scss
+ * Referenced in: /src/components/sections/EnvironmentSection.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+
+.containerEnvironment {
+    padding: 10rem min(8rem, 5vw) 9rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 0 7vw;
+    &::before,
+    &::after {
+        position: absolute;
+        z-index: 2;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        content: "";
+        pointer-events: none;
+    }
+    &::before {
+        top: -129px;
+        right: -97px;
+        width: 334px;
+        background-image: url("../../assets/images/common/object-circle.webp");
+        aspect-ratio: 1;
+    }
+    .inner {
+        position: relative;
+        font-size: inherit;
+        .itemImage {
+            flex: 1;
+        }
+        .content {
+            font-size: inherit;
+            display: flex;
+            flex-direction: column;
+            max-width: 76rem;
+            .label {
+                color: $secondary;
+                font-size: fz(14);
+                font-weight: 500;
+            }
+            h2 {
+                margin-top: 20px;
+                color: $text-primary;
+                font-size: fz(28);
+                font-weight: 700;
+                line-height: 1.5;
+            }
+            .description {
+                margin-top: 20px;
+                color: $text-secondary;
+                font-size: fz(15);
+                line-height: 1.8;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem 0;
+                p {
+                    font-size: inherit;
+                    line-height: inherit;
+                }
+            }
+        }
+    }
+}

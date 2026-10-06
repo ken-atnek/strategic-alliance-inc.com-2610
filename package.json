@@ -8,14 +8,20 @@
     "build:demo": "ASTRO_TELEMETRY_DISABLED=1 astro build --mode demo",
     "build:production": "ASTRO_TELEMETRY_DISABLED=1 astro build --mode production",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
-    "check": "ASTRO_TELEMETRY_DISABLED=1 astro check"
+    "check": "ASTRO_TELEMETRY_DISABLED=1 astro check",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "astro": "7.3.3"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
+    "@eslint/js": "10.0.1",
+    "eslint": "10.12.0",
+    "eslint-plugin-astro": "1.5.0",
     "sass": "1.104.1",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.71.0"
   }
 }

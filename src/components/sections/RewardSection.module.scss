@@ -1,0 +1,84 @@
+@use "../../styles/foundation" as *;
+/* =======================================
+ * ストラテジックアライアンス採用 Reward Section スタイル
+ * URL: /src/components/sections/RewardSection.module.scss
+ * Referenced in: /src/components/sections/RewardSection.astro
+ * Created: 2026-10-05
+ * Last updated: 2026-10-05
+ * ======================================= */
+
+.containerReward {
+    position: relative;
+    color: $pure-white;
+    padding: 12.6rem 4vw 11rem;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -+1;
+    }
+    &::before {
+        background: url("../../assets/images/reward/reward-bg.webp") no-repeat
+            center center/cover;
+    }
+    &::after {
+        opacity: 0.7;
+        background: var(--primary, #1c2b45);
+    }
+    .inner {
+        position: static;
+        width: 100%;
+        max-width: 1095px;
+        margin: 0 auto;
+        font-size: inherit;
+        &::before {
+            content: "";
+            position: absolute;
+            top: -5rem;
+            right: 3rem;
+            background: url(../../assets/images/common/object-triangle.webp)
+                no-repeat center center/contain;
+            aspect-ratio: 1;
+            width: 16rem;
+        }
+        h2 {
+            font-size: fz(32);
+            font-weight: 700;
+            line-height: 46px;
+            text-align: center;
+        }
+        .rewardGrid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 87px;
+            row-gap: 70px;
+            font-size: inherit;
+            background-color: rgba($primary-blue, 0.9);
+            border: 1px solid $secondary;
+            border-radius: 5px;
+            padding: 57px 56px 61px;
+            margin-top: 7.1rem;
+            .item {
+                font-size: inherit;
+                .number {
+                    color: $secondary;
+                    font-size: fz(14);
+                    font-weight: 700;
+                    line-height: 17px;
+                }
+                h3 {
+                    margin-top: 14px;
+                    font-size: fz(18);
+                    font-weight: 700;
+                    line-height: 1.4;
+                }
+                .description {
+                    margin-top: 14px;
+                    font-size: fz(14);
+                    line-height: 1.65;
+                }
+            }
+        }
+    }
+}
