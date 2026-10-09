@@ -1,0 +1,63 @@
+@use "../../styles/foundation" as *;
+/* =======================================
+ * ストラテジックアライアンス採用 Message Section スタイル
+ * URL: /src/components/sections/MessageSection.module.scss
+ * Referenced in: /src/components/sections/MessageSection.astro
+ * Created: 2026-10-05
+ * Last updated: 2026-10-05
+ * ======================================= */
+
+.containerMessage {
+    padding: 12rem 0 14rem;
+    display: flex;
+    flex-direction: column;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+    }
+    &::before {
+        background: url(/src/assets/images/message/message-bg.webp) no-repeat
+            right center / contain;
+    }
+    &::after {
+        background-image: linear-gradient(
+            to right,
+            rgba(#fff, 1),
+            rgba(#fff, 1) 30%,
+            rgba(#fff, 0)
+        );
+    }
+    .inner {
+        position: relative;
+        width: 100%;
+        font-size: inherit;
+        padding-left: min(12vw, 172px);
+        .boxContent {
+            position: relative;
+            z-index: 1;
+            width: 780px;
+            font-size: inherit;
+            h2 {
+                color: $secondary;
+                font-size: fz(14);
+                font-weight: 500;
+                text-align: center;
+            }
+            .copy {
+                display: flex;
+                flex-direction: column;
+                gap: 38px;
+                margin-top: 42px;
+                font-size: fz(20);
+                font-weight: 500;
+                line-height: 1.9;
+                p {
+                    font-size: inherit;
+                    line-height: inherit;
+                }
+            }
+        }
+    }
+}

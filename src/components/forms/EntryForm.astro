@@ -1,0 +1,83 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 エントリーフォーム
+ * URL: /src/components/forms/EntryForm.astro
+ * Referenced in: /src/pages/entry/index.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import { Image } from "astro:assets";
+
+import logo from "../../assets/images/entry/logo.png";
+import EntryComplete from "./EntryComplete.astro";
+import EntryConfirm from "./EntryConfirm.astro";
+import EntryStep1 from "./EntryStep1.astro";
+import EntryStep2 from "./EntryStep2.astro";
+import EntryStep3 from "./EntryStep3.astro";
+import EntryStep4 from "./EntryStep4.astro";
+import styles from "./EntryForm.module.scss";
+
+const entryEndpoint = import.meta.env.PUBLIC_ENTRY_API_URL;
+---
+
+<form
+  class={styles.form}
+  data-entry-form
+  data-entry-endpoint={entryEndpoint}
+  enctype="multipart/form-data"
+  novalidate
+>
+  <div class={styles.honeypot} aria-hidden="true">
+    <label for="entry-website">ウェブサイト</label>
+    <input
+      id="entry-website"
+      name="website"
+      type="text"
+      tabindex="-1"
+      autocomplete="off"
+    />
+  </div>
+
+  <div class={styles.header} data-entry-header>
+    <div class={styles.headerInner}>
+      <a
+        class={styles.logoLink}
+        href="/"
+        aria-label="株式会社ストラテジックアライアンス 採用サイト トップ"
+      >
+        <Image
+          src={logo}
+          alt="株式会社ストラテジックアライアンス"
+          width={120}
+          height={49}
+        />
+      </a>
+
+      <p class={styles.stepLabel} data-entry-step-label>
+        Step 1 / 4：基本情報
+      </p>
+    </div>
+
+    <div
+      class={styles.progress}
+      role="progressbar"
+      aria-label="応募フォームの進捗"
+      aria-valuemin="1"
+      aria-valuemax="4"
+      aria-valuenow="1"
+    >
+      <span data-entry-progress-bar></span>
+    </div>
+  </div>
+
+  <EntryStep1 />
+  <EntryStep2 />
+  <EntryStep3 />
+  <EntryStep4 />
+  <EntryConfirm />
+  <EntryComplete />
+</form>
+
+<script>
+  import "../../scripts/entry-form";
+</script>

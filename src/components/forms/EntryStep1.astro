@@ -1,0 +1,138 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 エントリーフォーム Step 1
+ * URL: /src/components/forms/EntryStep1.astro
+ * Referenced in: /src/components/forms/EntryForm.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import styles from "./EntryForm.module.scss";
+---
+
+<section
+  class={styles.body}
+  aria-labelledby="entry-step-1-title"
+  data-entry-step="1"
+>
+  <h1 id="entry-step-1-title" class={styles.title} tabindex="-1">
+    基本情報のご入力
+  </h1>
+  <p class={styles.introduction}>
+    お名前やご連絡先など、基本的な情報をご入力ください。
+  </p>
+
+  <div class={styles.fields}>
+    <div class={styles.field}>
+      <label for="full-name">
+        氏名 <span aria-hidden="true">*</span><span class="sr-only">必須</span>
+      </label>
+      <input
+        id="full-name"
+        name="fullName"
+        type="text"
+        autocomplete="name"
+        placeholder="山田 太郎"
+        required
+      />
+    </div>
+
+    <div class={styles.field}>
+      <label for="full-name-kana">
+        フリガナ <span aria-hidden="true">*</span><span class="sr-only"
+          >必須</span
+        >
+      </label>
+      <input
+        id="full-name-kana"
+        name="fullNameKana"
+        type="text"
+        placeholder="ヤマダ タロウ"
+        required
+      />
+    </div>
+
+    <div class={styles.field}>
+      <label for="birth-date">
+        生年月日 <span aria-hidden="true">*</span><span class="sr-only"
+          >必須</span
+        >
+      </label>
+      <input
+        id="birth-date"
+        name="birthDate"
+        type="text"
+        inputmode="numeric"
+        autocomplete="bday"
+        placeholder="1990年1月1日"
+        required
+      />
+    </div>
+
+    <div class={styles.field}>
+      <label for="phone-number">
+        電話番号 <span aria-hidden="true">*</span><span class="sr-only"
+          >必須</span
+        >
+      </label>
+      <input
+        id="phone-number"
+        name="phoneNumber"
+        type="tel"
+        autocomplete="tel"
+        placeholder="090-0000-0000"
+        required
+      />
+    </div>
+
+    <div class={styles.field}>
+      <label for="email">
+        メールアドレス <span aria-hidden="true">*</span><span class="sr-only"
+          >必須</span
+        >
+      </label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        autocomplete="email"
+        placeholder="example@mail.com"
+        required
+      />
+    </div>
+
+    <div class={styles.field}>
+      <label for="employment-status">
+        現在の就業状況 <span aria-hidden="true">*</span><span class="sr-only"
+          >必須</span
+        >
+      </label>
+      <input
+        id="employment-status"
+        name="employmentStatus"
+        type="text"
+        placeholder="在職中 / 離職中"
+        required
+      />
+    </div>
+
+    <div class={`${styles.field} ${styles.fieldWide}`}>
+      <label for="address">
+        住所 <span aria-hidden="true">*</span><span class="sr-only">必須</span>
+      </label>
+      <input
+        id="address"
+        name="address"
+        type="text"
+        autocomplete="street-address"
+        placeholder="都道府県・市区町村・番地"
+        required
+      />
+    </div>
+  </div>
+
+  <div class={styles.actions}>
+    <button class={styles.nextButton} type="button" data-entry-go="2">
+      次へ（経験・スキル）
+    </button>
+  </div>
+</section>

@@ -4,14 +4,34 @@
  * URL: /src/pages/index.astro
  * Referenced in: /
  * Created: 2026-09-30
- * Last updated: 2026-09-30
+ * Last updated: 2026-10-06
  * ======================================= */
+import Header from "../components/common/Header.astro";
+import EntrySection from "../components/sections/EntrySection.astro";
+import EnvironmentSection from "../components/sections/EnvironmentSection.astro";
+import Footer from "../components/common/Footer.astro";
+import FinalCtaSection from "../components/sections/FinalCtaSection.astro";
+import HeroSection from "../components/sections/HeroSection.astro";
+import JobSection from "../components/sections/JobSection.astro";
+import MessageSection from "../components/sections/MessageSection.astro";
+import PersonaSection from "../components/sections/PersonaSection.astro";
+import RequirementsSection from "../components/sections/RequirementsSection.astro";
+import RewardSection from "../components/sections/RewardSection.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
+  <Header entryHref="/entry/" />
   <main id="main-content">
-    <h1 class="srOnly">株式会社ストラテジックアライアンス 採用サイト</h1>
+    <HeroSection entryHref="/entry/" />
+    <MessageSection />
+    <JobSection />
+    <RewardSection />
+    <PersonaSection />
+    <EnvironmentSection />
+    <RequirementsSection detailHref="/entry/" />
+    <EntrySection entryHref="/entry/" />
+    <FinalCtaSection entryHref="/entry/" />
   </main>
+  <Footer />
 </BaseLayout>
-

@@ -7,13 +7,10 @@
  * ======================================= */
 
 $font-family-base:
-  "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
-  sans-serif;
-
-$font-weight-regular: 400;
-$font-weight-medium: 500;
-$font-weight-bold: 700;
+    "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic",
+    sans-serif;
 
 @mixin font-base {
-  font-family: $font-family-base;
+    font-family: $font-family-base;
+    font-weight: 400;
 }

@@ -1,0 +1,65 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 Job Section
+ * URL: /src/components/sections/JobSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-10-05
+ * Last updated: 2026-10-05
+ * ======================================= */
+import styles from "./JobSection.module.scss";
+
+const jobItems = [
+  {
+    title: "募集人採用",
+    description: "採用計画に基づき、保険募集人の採用実務を担当します。",
+  },
+  {
+    title: "教育・管理",
+    description:
+      "保険募集人・クラークの労務管理、募集管理、業務支援を行います。",
+  },
+  {
+    title: "売上・生産性",
+    description:
+      "目標達成に向けたマネジメントで、収益拡大を後押しします。",
+  },
+  {
+    title: "業務品質",
+    description: "日々の業務品質を高め、組織全体の水準を引き上げます。",
+  },
+  {
+    title: "リスク管理",
+    description: "適正な業務運営のための管理体制を徹底します。",
+    isCompact: true,
+  },
+  {
+    title: "保険会社連携",
+    description:
+      "取引先保険会社との窓口として、適切な連携を図ります。",
+  },
+];
+---
+
+<section class={styles.containerJob} aria-labelledby="job-title">
+  <div class={styles.inner}>
+    <div class={styles.heading}>
+      <h2 id="job-title">仕事内容</h2>
+      <p>
+        採用・育成・マネジメントの視点から、保険事業全体の品質と成長を支えます。
+      </p>
+    </div>
+
+    <ul class={styles.cardGrid}>
+      {
+        jobItems.map((item) => (
+          <li
+            class:list={[styles.card, item.isCompact && styles.isCompact]}
+          >
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

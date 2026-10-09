@@ -1,6 +1,11 @@
-@use "./foundation/reset";
-@use "./global/base";
-@use "./utilities/accessibility";
+@use "./foundation/reset_v2.5.scss" as *;
+@use "./foundation/settings" as *;
+@use "./foundation/typography" as *;
+@use "./foundation/colors" as *;
+@use "./foundation/breakpoints" as *;
+@use "./foundation/interaction" as *;
+@use "./foundation/svg" as *;
+@use "./foundation/ui" as *;
 /* =======================================
  * ストラテジックアライアンス採用 グローバルスタイル
  * URL: /src/styles/globals.scss
@@ -9,12 +14,12 @@
  * Last updated: 2026-10-02
  * ======================================= */
 
-html {
-    // scroll-behavior: auto;
-}
+// html {
+//     scroll-behavior: auto;
+// }
 
 body {
-    @include zen-kaku-gothic-antique;
+    @include font-base;
     font-size: clamp(1.2rem, calc($base-vw * 1vw) + calc($slice * 1px), 1.6rem);
     margin: 0;
     padding: 0;
@@ -24,7 +29,9 @@ body {
     min-height: 100vh;
     justify-content: space-between;
     width: 100%;
-    color: $main-sub-black;
+    color: $text-primary;
+    background-color: $pure-white;
+
     @include tbw {
         overflow-x: clip;
     }

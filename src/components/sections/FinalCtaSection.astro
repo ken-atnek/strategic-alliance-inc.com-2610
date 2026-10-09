@@ -1,0 +1,45 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 Final CTA Section
+ * URL: /src/components/sections/FinalCtaSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import { Image } from "astro:assets";
+
+import finalCtaDecoration from "../../assets/images/final-cta/final-cta-decoration.webp";
+import styles from "./FinalCtaSection.module.scss";
+
+interface Props {
+  entryHref?: string;
+}
+
+const { entryHref = "#" } = Astro.props;
+---
+
+<section class={styles.containerFinalCta} aria-labelledby="final-cta-title">
+  <Image
+    class={styles.decorationLeft}
+    src={finalCtaDecoration}
+    alt=""
+    width={496}
+    height={496}
+  />
+  <Image
+    class={styles.decorationRight}
+    src={finalCtaDecoration}
+    alt=""
+    width={496}
+    height={496}
+  />
+
+  <div class={styles.inner}>
+    <h2 id="final-cta-title">
+      <span>あなたの経験を、</span>
+      <span>人を育て、組織をつくる仕事へ。</span>
+    </h2>
+    <p>保険・金融領域での経験を、採用・育成・組織づくりに活かせます。</p>
+    <a class={styles.entryButton} href={entryHref}>エントリーする</a>
+  </div>
+</section>

@@ -24,7 +24,7 @@ npm run build
 | 環境 | URL | 検索エンジン |
 | --- | --- | --- |
 | ローカル | Astro開発サーバー | 対象外 |
-| デモ | 未確定 | `noindex, nofollow` |
+| デモ | `https://demo-strategic-alliance.tuna-pic.co.jp/` | `noindex, nofollow` |
 | 本番 | 未確定 | インデックス対象予定 |
 
 ## SEO
@@ -38,13 +38,35 @@ npm run build
 
 ## フォーム送信
 
-フォームの見た目と画面遷移はFigmaにありますが、送信・保存の仕組みは未確定です。
+第一段階では、XBiz上のPHP APIから応募内容を担当者へメール通知します。データベースへの保存は、後から同じAPIへ追加します。
 
-実装前に以下を確定します。
+- 主送信先（To）：`ken.atnek@gmail.com`
+- デバッグ通知先（Bcc）：`debug01@a-fact.co.jp`
+- 送信先アドレスとメールサービスの認証情報は環境変数で管理し、フロントエンドへ埋め込まない
+- メール送信が成功した場合だけ応募完了画面を表示する
+- 職務経歴書はPDF・Word形式、上限5MBとしてメールへ添付し、サーバーへ恒久保存しない（暫定仕様）
+- 同一オリジン確認、ハニーポット、サーバー側必須チェックを行う
+- デモサイトはBasic認証で保護する
+- デモビルドではメール送信APIを含め、`debug01@a-fact.co.jp`だけへ送信する
+- 本番ビルドでは`public/api/entry.php`を`dist/api/entry.php`へ含める
 
-- 送信先APIまたはフォームサービス
+### 環境変数
+
+| 変数 | 用途 | 初期値 |
+| --- | --- | --- |
+| `PUBLIC_ENTRY_API_URL` | フロントエンドから呼び出す送信API | 本番：`/api/entry.php`、デモ：未設定 |
+| `ENTRY_MAIL_TO` | 主送信先 | `ken.atnek@gmail.com` |
+| `ENTRY_MAIL_BCC` | デバッグ通知先 | `debug01@a-fact.co.jp` |
+| `ENTRY_MAIL_FROM` | 送信元 | `recruit@strategic-alliance-inc.com` |
+| `ENTRY_TEST_MAIL_TO` | デモURLからのテスト送信先 | `debug01@a-fact.co.jp` |
+| `ENTRY_RESUME_MAX_BYTES` | 添付ファイル上限 | `5242880`（5MB） |
+
+PHP側の環境変数が未設定の場合は上記のメールアドレスを使用します。送信にはXBizサーバーのPHPメール機能を使用し、到達性に問題がある場合は認証付きSMTPへ切り替えます。
+
+本番運用前に以下を確定します。
+
 - 応募データの保存先
-- 職務経歴書の保存先とアクセス制御
+- 職務経歴書の最終的な許可形式・上限容量
 - 担当者通知と自動返信
 - スパム対策
 - CSRF対策
@@ -52,7 +74,7 @@ npm run build
 - 送信失敗時の表示と再送方法
 - 保存期間と削除運用
 
-バックエンドが未確定の段階では、実データを外部へ送信する処理を追加しません。
+ローカル環境にはPHP実行環境がないため、APIの構文確認と実送信テストはXBizサーバーへのテスト配置後に行います。
 
 ## 公開前確認
 

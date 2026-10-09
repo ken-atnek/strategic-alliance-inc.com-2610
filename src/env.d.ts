@@ -3,9 +3,9 @@
 interface ImportMetaEnv {
   readonly SITE_ENV: "demo" | "production";
   readonly PUBLIC_SITE_URL?: string;
+  readonly PUBLIC_ENTRY_API_URL?: string;
 }
 
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
-

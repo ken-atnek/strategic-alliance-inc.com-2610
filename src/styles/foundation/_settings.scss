@@ -6,7 +6,31 @@
  * Last updated: 2026-10-02
  * ======================================= */
 
-$design-width: 1440px;
-$content-width: 1280px;
-$content-padding: 80px;
-$form-width: 720px;
+/* =================================
+ * ウィンドウ・フォントサイズ設定
+ * ------------------------------ */
+
+// MAX-WIDTH宣言
+$m-width: 1024;
+$pc-max-width: calc($m-width * 1px);
+
+// フォントサイズ(mx1000)
+$max-font: 16;
+$min-font: 12;
+$sp-width: 375;
+
+// 可変フォントサイズ計算
+$tilt: calc(($max-font - $min-font) / ($m-width - $sp-width));
+$slice: calc($min-font - ($tilt * $sp-width));
+$base-vw: calc($tilt * 100);
+
+// 指定フォント関数
+@function fz($size) {
+    @if $size <= $min-font {
+        @return $min-font * 1px;
+    } @else {
+        @return max(12px, ($size / $max-font) * 1em);
+    }
+}
+
+$article-max-width: 1164px;

@@ -1,0 +1,42 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 Hero Section
+ * URL: /src/components/sections/HeroSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-10-02
+ * Last updated: 2026-10-02
+ * ======================================= */
+import { Image } from "astro:assets";
+
+import heroDecoration from "../../assets/images/common/object-circle.webp";
+import styles from "./HeroSection.module.scss";
+
+interface Props {
+  entryHref?: string;
+}
+
+const { entryHref = "#entry" } = Astro.props;
+---
+
+<section class={styles.containerHero} aria-labelledby="hero-title">
+  <Image
+    class={styles.decoration}
+    src={heroDecoration}
+    alt=""
+    width={607}
+    height={608}
+  />
+
+  <div class={styles.boxContent}>
+    <p class={styles.badge}>保険募集人 採用・育成・マネジメント担当</p>
+    <h1 id="hero-title" class={styles.title}>
+      <span>保険の力で、</span>
+      <span>人と組織を育てる仕事。</span>
+    </h1>
+    <p class={styles.lead}>
+      <span>保険募集人・ファイナンシャル・アドバイザーの</span>
+      <span>採用、育成、マネジメントを担う仕事です。</span>
+    </p>
+    <a class={styles.entryButton} href={entryHref}>エントリーする</a>
+  </div>
+</section>

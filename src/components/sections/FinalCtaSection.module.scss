@@ -1,0 +1,79 @@
+@use "../../styles/foundation" as *;
+/* =======================================
+ * ストラテジックアライアンス採用 Final CTA Section スタイル
+ * URL: /src/components/sections/FinalCtaSection.module.scss
+ * Referenced in: /src/components/sections/FinalCtaSection.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+
+.containerFinalCta {
+    position: relative;
+    padding: 214px 4vw 159px;
+    .decorationLeft,
+    .decorationRight {
+        position: absolute;
+        z-index: 0;
+        width: 496px;
+        max-width: none;
+        height: 496px;
+        pointer-events: none;
+    }
+
+    .decorationLeft {
+        bottom: 0;
+        left: 0;
+    }
+
+    .decorationRight {
+        top: 0;
+        right: 0;
+        transform: rotate(180deg);
+    }
+
+    .inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: inherit;
+        text-align: center;
+        h2 {
+            color: $text-primary;
+            font-size: fz(30);
+            font-weight: 700;
+            line-height: 1.5;
+            span {
+                display: block;
+                font-size: inherit;
+                line-height: inherit;
+            }
+        }
+        p {
+            margin-top: 32px;
+            color: $text-secondary;
+            font-size: fz(15);
+            line-height: 18px;
+        }
+        .entryButton {
+            @include focus-visible;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 55px;
+            margin-top: 32px;
+            color: $pure-white;
+            font-size: fz(16);
+            font-weight: 700;
+            line-height: 1;
+            background-color: $primary-blue;
+            border-radius: 4px;
+            transition: opacity 0.2s ease;
+            @include hover {
+                opacity: 0.82;
+            }
+        }
+    }
+}

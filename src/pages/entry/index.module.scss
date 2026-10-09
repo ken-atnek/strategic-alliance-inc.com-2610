@@ -1,0 +1,13 @@
+@use "../../styles/foundation" as *;
+/* =======================================
+ * ストラテジックアライアンス採用 エントリーページ スタイル
+ * URL: /src/pages/entry/index.module.scss
+ * Referenced in: /src/pages/entry/index.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+
+.page {
+    min-height: 100vh;
+    background-color: $background;
+}

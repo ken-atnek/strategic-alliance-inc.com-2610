@@ -1,0 +1,38 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 Header
+ * URL: /src/components/common/Header.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-10-02
+ * Last updated: 2026-10-02
+ * ======================================= */
+import { Image } from "astro:assets";
+
+import logo from "../../assets/images/header/logo.webp";
+import styles from "./Header.module.scss";
+
+interface Props {
+  entryHref?: string;
+}
+
+const { entryHref = "#entry" } = Astro.props;
+---
+
+<header class={styles.header}>
+  <div class={styles.inner}>
+    <a
+      class={styles.logoLink}
+      href="/"
+      aria-label="株式会社ストラテジックアライアンス 採用サイト トップ"
+    >
+      <Image
+        src={logo}
+        alt="株式会社ストラテジックアライアンス"
+        width={160}
+        height={65}
+      />
+    </a>
+
+    <a class={styles.entryButton} href={entryHref}>エントリーする</a>
+  </div>
+</header>

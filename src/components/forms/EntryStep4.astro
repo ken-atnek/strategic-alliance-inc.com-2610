@@ -1,0 +1,75 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 エントリーフォーム Step 4
+ * URL: /src/components/forms/EntryStep4.astro
+ * Referenced in: /src/components/forms/EntryForm.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+import styles from "./EntryForm.module.scss";
+---
+
+<section
+  class={styles.body}
+  aria-labelledby="entry-step-4-title"
+  data-entry-step="4"
+  hidden
+>
+  <h1 id="entry-step-4-title" class={styles.title} tabindex="-1">
+    最後に、あなたの想いをお聞かせください。
+  </h1>
+  <p class={styles.introduction}>
+    志望動機や自己PRなど、自由にご記入ください。
+  </p>
+
+  <div class={`${styles.fields} ${styles.freeInputFields}`}>
+    <div class={`${styles.field} ${styles.fieldWide}`}>
+      <label for="motivation">志望動機</label>
+      <textarea
+        class={styles.textareaLarge}
+        id="motivation"
+        name="motivation"
+        placeholder="この仕事を志望する理由をご入力ください"></textarea>
+    </div>
+
+    <div class={`${styles.field} ${styles.fieldWide}`}>
+      <label for="self-promotion">自己PR</label>
+      <textarea
+        class={styles.textareaLarge}
+        id="self-promotion"
+        name="selfPromotion"
+        placeholder="これまでの経験やご自身の強みをご入力ください"></textarea>
+    </div>
+
+    <div class={`${styles.field} ${styles.fieldWide}`}>
+      <label for="preferred-conditions">希望条件</label>
+      <textarea
+        class={styles.textareaSmall}
+        id="preferred-conditions"
+        name="preferredConditions"
+        placeholder="勤務条件など、ご希望があればご入力ください"></textarea>
+    </div>
+
+    <div class={`${styles.field} ${styles.fieldWide}`}>
+      <label for="questions">質問・連絡事項</label>
+      <textarea
+        class={styles.textareaSmall}
+        id="questions"
+        name="questions"
+        placeholder="その他ご質問やご連絡事項があればご入力ください"></textarea>
+    </div>
+  </div>
+
+  <div class={`${styles.actions} ${styles.actionsBetween}`}>
+    <button class={styles.backButton} type="button" data-entry-go="3">
+      戻る
+    </button>
+    <button
+      class={styles.nextButton}
+      type="button"
+      data-entry-go="confirm"
+    >
+      確認画面へ進む
+    </button>
+  </div>
+</section>

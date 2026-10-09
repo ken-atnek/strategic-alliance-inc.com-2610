@@ -1,0 +1,149 @@
+@use "../../styles/foundation" as *;
+/* =======================================
+ * ストラテジックアライアンス採用 Entry Section スタイル
+ * URL: /src/components/sections/EntrySection.module.scss
+ * Referenced in: /src/components/sections/EntrySection.astro
+ * Created: 2026-10-06
+ * Last updated: 2026-10-06
+ * ======================================= */
+
+.containerEntry {
+    position: relative;
+    color: $pure-white;
+    padding: 15rem 4vw 13rem;
+    background: url("../../assets/images/entry/entry-bg.webp") no-repeat center
+        center/cover;
+    &::before,
+    &::after {
+        z-index: -1;
+        content: "";
+        position: absolute;
+    }
+    &::before {
+        inset: 0;
+        background-color: rgba($primary-blue, 0.8);
+        pointer-events: none;
+    }
+
+    &::after {
+        bottom: 3rem;
+        right: -9rem;
+        width: 285px;
+        background: url("../../assets/images/common/object-line.webp") no-repeat
+            center/contain;
+        pointer-events: none;
+        aspect-ratio: 570 / 397;
+    }
+
+    .inner {
+        position: static;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: inherit;
+        z-index: 2;
+        &::before {
+            content: "";
+            position: absolute;
+            top: -20rem;
+            left: -28rem;
+            width: 55rem;
+            background: url("../../assets/images/common/object-circle.webp")
+                no-repeat center center/contain;
+            aspect-ratio: 1;
+        }
+    }
+
+    .heading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        width: min(760px, calc(100% - 160px));
+        font-size: inherit;
+        text-align: center;
+        h2 {
+            font-size: fz(32);
+            font-weight: 700;
+            line-height: 38px;
+        }
+        p {
+            color: #e5e8ed;
+            font-size: fz(16);
+            line-height: 1.75;
+            span {
+                display: block;
+                font-size: inherit;
+                line-height: inherit;
+            }
+        }
+    }
+
+    .steps {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-rows: auto auto 1fr;
+        gap: 7px;
+        width: min(1240px, 100%);
+        margin-top: 72px;
+        .stepItem {
+            height: 134px;
+            padding: 28px 20px;
+            background-color: #2a3850;
+            border: 1px solid #59667a;
+            border-radius: 8px;
+            grid-row: span 3;
+            display: grid;
+            grid-template-rows: subgrid;
+            .stepNumber {
+                color: $secondary;
+                font-size: 13px;
+                font-weight: 700;
+                line-height: normal;
+            }
+            h3 {
+                font-size: fz(17);
+                font-weight: 700;
+                line-height: 1.4;
+            }
+            .stepDescription {
+                margin-top: 10px;
+                color: #bfc4cc;
+                font-size: 12px;
+                line-height: 1.5;
+            }
+        }
+    }
+    .notes {
+        width: min(720px, calc(100% - 160px));
+        margin-top: 52px;
+        color: #d9dee5;
+        font-size: fz(14);
+        line-height: 32px;
+        text-align: center;
+        p {
+            font-size: inherit;
+            line-height: inherit;
+        }
+    }
+    .entryButton {
+        @include focus-visible;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 279px;
+        height: 55px;
+        margin-top: 52px;
+        color: $primary-blue;
+        font-size: fz(16);
+        font-weight: 700;
+        line-height: 1;
+        background-color: $secondary;
+        border-radius: 4px;
+        transition: opacity 0.2s ease;
+        @include hover {
+            opacity: 0.82;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+---
+/* =======================================
+ * ストラテジックアライアンス採用 Reward Section
+ * URL: /src/components/sections/RewardSection.astro
+ * Referenced in: /src/pages/index.astro
+ * Created: 2026-10-05
+ * Last updated: 2026-10-05
+ * ======================================= */
+
+import styles from "./RewardSection.module.scss";
+
+const rewardItems = [
+  {
+    number: "01",
+    title: "人を採用し、育てるやりがい",
+    description:
+      "一人の採用人材が力をつけていく過程に、直接関わることができます。",
+  },
+  {
+    number: "02",
+    title: "チーム・営業部門を成長させるやりがい",
+    description: "数字だけでなく、組織としての成長を実感できます。",
+  },
+  {
+    number: "03",
+    title: "お客様の人生や経営に貢献するやりがい",
+    description:
+      "育成した募集人の先にいるお客様の安心にも、間接的に貢献します。",
+  },
+  {
+    number: "04",
+    title: "数字と品質を両立させるやりがい",
+    description:
+      "成果だけでなく、業務品質やコンプライアンスの面でも組織を支えます。",
+  },
+];
+---
+
+<section class={styles.containerReward} aria-labelledby="reward-title">
+  <div class={styles.inner}>
+    <h2 id="reward-title">この仕事のやりがい</h2>
+    <ul class={styles.rewardGrid}>
+      {
+        rewardItems.map((item) => (
+          <li class={styles.item}>
+            <p class={styles.number}>{item.number}</p>
+            <h3>{item.title}</h3>
+            <p class={styles.description}>{item.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
