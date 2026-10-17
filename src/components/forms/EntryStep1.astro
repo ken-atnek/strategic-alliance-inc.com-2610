@@ -4,7 +4,7 @@
  * URL: /src/components/forms/EntryStep1.astro
  * Referenced in: /src/components/forms/EntryForm.astro
  * Created: 2026-10-06
- * Last updated: 2026-10-06
+ * Last updated: 2026-10-16
  * ======================================= */
 import styles from "./EntryForm.module.scss";
 ---
@@ -106,13 +106,15 @@ import styles from "./EntryForm.module.scss";
           >必須</span
         >
       </label>
-      <input
+      <select
         id="employment-status"
         name="employmentStatus"
-        type="text"
-        placeholder="在職中 / 離職中"
         required
-      />
+      >
+        <option value="" disabled selected>選択してください</option>
+        <option value="employed">在職中</option>
+        <option value="unemployed">離職中</option>
+      </select>
     </div>
 
     <div class={`${styles.field} ${styles.fieldWide}`}>

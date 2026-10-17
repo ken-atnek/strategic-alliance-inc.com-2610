@@ -4,7 +4,7 @@
  * URL: /src/components/forms/EntryForm.astro
  * Referenced in: /src/pages/entry/index.astro
  * Created: 2026-10-06
- * Last updated: 2026-10-06
+ * Last updated: 2026-10-16
  * ======================================= */
 import { Image } from "astro:assets";
 
@@ -17,7 +17,7 @@ import EntryStep3 from "./EntryStep3.astro";
 import EntryStep4 from "./EntryStep4.astro";
 import styles from "./EntryForm.module.scss";
 
-const entryEndpoint = import.meta.env.PUBLIC_ENTRY_API_URL;
+const entryEndpoint = import.meta.env.PUBLIC_ENTRY_API_URL?.trim() || "/api/entry.php";
 ---
 
 <form
@@ -37,6 +37,12 @@ const entryEndpoint = import.meta.env.PUBLIC_ENTRY_API_URL;
       autocomplete="off"
     />
   </div>
+
+  <input
+    type="hidden"
+    name="submissionKey"
+    data-entry-submission-key
+  />
 
   <div class={styles.header} data-entry-header>
     <div class={styles.headerInner}>

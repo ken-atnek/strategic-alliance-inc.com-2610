@@ -505,6 +505,10 @@
     }
 }
 
+.completionMessage .completionWarning {
+    color: #b42318;
+}
+
 .completionLink {
     @include focus-visible;
     display: flex;

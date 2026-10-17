@@ -34,11 +34,12 @@ import styles from "./EntryForm.module.scss";
         name="insuranceExperienceYears"
         required
       >
+        <option value="" disabled selected>選択してください</option>
         <option value="0">未経験</option>
         <option value="less-than-1">1年未満</option>
         <option value="1">1年</option>
         <option value="2">2年</option>
-        <option value="3" selected>3年</option>
+        <option value="3">3年</option>
         <option value="4">4年</option>
         <option value="5">5年</option>
         <option value="6">6年</option>
@@ -60,10 +61,11 @@ import styles from "./EntryForm.module.scss";
         name="financeExperienceYears"
         required
       >
+        <option value="" disabled selected>選択してください</option>
         <option value="0">未経験</option>
         <option value="less-than-1">1年未満</option>
         <option value="1">1年</option>
-        <option value="2" selected>2年</option>
+        <option value="2">2年</option>
         <option value="3">3年</option>
         <option value="4">4年</option>
         <option value="5">5年</option>
@@ -82,13 +84,14 @@ import styles from "./EntryForm.module.scss";
         >
       </label>
       <select id="sales-experience-years" name="salesExperienceYears" required>
+        <option value="" disabled selected>選択してください</option>
         <option value="0">未経験</option>
         <option value="less-than-1">1年未満</option>
         <option value="1">1年</option>
         <option value="2">2年</option>
         <option value="3">3年</option>
         <option value="4">4年</option>
-        <option value="5" selected>5年</option>
+        <option value="5">5年</option>
         <option value="6">6年</option>
         <option value="7">7年</option>
         <option value="8">8年</option>
@@ -109,7 +112,6 @@ import styles from "./EntryForm.module.scss";
             name="managementExperience"
             type="radio"
             value="あり"
-            checked
             required
           />
           <span>あり</span>
@@ -138,7 +140,6 @@ import styles from "./EntryForm.module.scss";
             name="trainingExperience"
             type="radio"
             value="あり"
-            checked
             required
           />
           <span>あり</span>
@@ -176,7 +177,6 @@ import styles from "./EntryForm.module.scss";
             name="laborManagementExperience"
             type="radio"
             value="なし"
-            checked
             required
           />
           <span>なし</span>
@@ -205,7 +205,6 @@ import styles from "./EntryForm.module.scss";
             name="complianceExperience"
             type="radio"
             value="なし"
-            checked
             required
           />
           <span>なし</span>
