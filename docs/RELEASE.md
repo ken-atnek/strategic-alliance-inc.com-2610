@@ -7,7 +7,7 @@
 - デモと本番の設定は、ビルド時の環境変数で分ける
 - ふもと旅館採用サイトと同じ公開方法を基準にする
 
-公開URL、デモURL、FTP配置先は未確定です。確定前に実在するURLを仮置きしません。
+デモ・本番の正式URLは下表のとおりです。サーバー上の公開ディレクトリとの対応とアップロード方法は、デモ配置時に実測します。
 
 ## 想定コマンド
 
@@ -25,7 +25,11 @@ npm run build
 | --- | --- | --- |
 | ローカル | Astro開発サーバー | 対象外 |
 | デモ | `https://demo-strategic-alliance.tuna-pic.co.jp/` | `noindex, nofollow` |
-| 本番 | 未確定 | インデックス対象予定 |
+| 本番 | `https://strategic-alliance-inc.com/` | インデックス対象予定 |
+
+デモ管理画面は `https://demo-strategic-alliance-control.tuna-pic.co.jp/`、本番管理画面は `https://control.strategic-alliance-inc.com/`。応募受付APIは各フロントエンドと同一Hostの `/api/entry.php` を使用する。
+
+2026-10-17のサーバー実測では、デモフロントの `.../demo-strategic-alliance/strategic_2610/` に置いた一時ファイルを、URL直下と `/strategic_2610/` の両方から取得できた。親の `.../demo-strategic-alliance/` 直下に置いた一時ファイルはURL直下で404。既存の配信経路を維持し、デモの公開物は入れ子の `strategic_2610/` を対象とする。既存の親ディレクトリのBasic認証設定は変更しない。デモ管理画面も `.../demo-strategic-alliance-control/` 直下の一時ファイルを正式URLから取得できた。両方の一時ファイルは作成者が削除済み。両デモサブドメインのWeb PHPは8.3.33、必要拡張14種が有効で、各 `__DIR__` は想定パスと一致。一時PHPは双方とも削除済み。非公開領域の読み書きは未確認。
 
 ## SEO
 
@@ -55,6 +59,7 @@ XBiz上の既存PHP APIで、入力検証、職務経歴書の非公開保存、
 - デモビルドではメール送信APIを含め、`debug01@a-fact.co.jp`だけへ送信する
 - 本番ビルドでは`public/api/entry.php`を`dist/api/entry.php`へ含める
 - デモ・本番ともフォームの送信先は同一オリジンの`/api/entry.php`とする。APIのJSON成功応答を確認できない場合は応募完了画面へ進めない
+- `entry.php` は公開ディレクトリ末尾でデモ・本番を判定し、上記の対応するフロントHost以外からのPOSTをDB接続前に403で拒否する。デモ側の判定パスは上記の実測を受けて入れ子の `strategic_2610/api/` に修正済み。ローカルの一時PHPサーバーで、正しい組み合わせ・取り違えたHost・Origin不一致・旧親ディレクトリの拒否を確認済み。実サーバーのWeb PHPでの一致はデモ配置後に確認する。従来の一時ローカルURL `127.0.0.1:18081` からのPOSTも現状では403になるため、再度ローカル実ブラウザ送信を行う場合は専用の安全なテストHostを別途定める
 
 ### 環境変数
 

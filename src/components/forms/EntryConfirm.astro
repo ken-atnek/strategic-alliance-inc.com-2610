@@ -4,7 +4,7 @@
  * URL: /src/components/forms/EntryConfirm.astro
  * Referenced in: /src/components/forms/EntryForm.astro
  * Created: 2026-10-06
- * Last updated: 2026-10-06
+ * Last updated: 2026-10-19
  * ======================================= */
 import styles from "./EntryForm.module.scss";
 ---
@@ -28,24 +28,88 @@ import styles from "./EntryForm.module.scss";
       <dd data-entry-confirm="fullName">未入力</dd>
     </div>
     <div class={styles.confirmRow}>
-      <dt>メールアドレス</dt>
-      <dd data-entry-confirm="email">未入力</dd>
+      <dt>フリガナ</dt>
+      <dd data-entry-confirm="fullNameKana">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>生年月日</dt>
+      <dd data-entry-confirm="birthDate">未入力</dd>
     </div>
     <div class={styles.confirmRow}>
       <dt>電話番号</dt>
       <dd data-entry-confirm="phoneNumber">未入力</dd>
     </div>
     <div class={styles.confirmRow}>
+      <dt>メールアドレス</dt>
+      <dd data-entry-confirm="email">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>現在の就業状況</dt>
+      <dd data-entry-confirm="employmentStatus">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>住所</dt>
+      <dd data-entry-confirm="address">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
       <dt>保険業界での経験年数</dt>
       <dd data-entry-confirm="insuranceExperienceYears">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>金融業界での経験年数</dt>
+      <dd data-entry-confirm="financeExperienceYears">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>営業経験年数</dt>
+      <dd data-entry-confirm="salesExperienceYears">未入力</dd>
     </div>
     <div class={styles.confirmRow}>
       <dt>マネジメント経験の有無</dt>
       <dd data-entry-confirm="managementExperience">未入力</dd>
     </div>
     <div class={styles.confirmRow}>
+      <dt>採用・育成・教育経験の有無</dt>
+      <dd data-entry-confirm="trainingExperience">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>労務管理経験の有無</dt>
+      <dd data-entry-confirm="laborManagementExperience">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>保険募集管理やコンプライアンス関連経験の有無</dt>
+      <dd data-entry-confirm="complianceExperience">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>生命保険募集人資格</dt>
+      <dd data-entry-confirm="lifeInsuranceQualification">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>損害保険募集人資格</dt>
+      <dd data-entry-confirm="nonLifeInsuranceQualification">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>FP資格</dt>
+      <dd data-entry-confirm="fpQualification">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>その他保有資格</dt>
+      <dd data-entry-confirm="otherQualifications">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
       <dt>直近の勤務先</dt>
       <dd data-entry-confirm="latestEmployer">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>マネジメント人数</dt>
+      <dd data-entry-confirm="managementTeamSize">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>経験業務</dt>
+      <dd data-entry-confirm="workExperience">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>主な実績</dt>
+      <dd data-entry-confirm="achievements">未入力</dd>
     </div>
     <div class={styles.confirmRow}>
       <dt>職務経歴書</dt>
@@ -54,6 +118,18 @@ import styles from "./EntryForm.module.scss";
     <div class={styles.confirmRow}>
       <dt>志望動機</dt>
       <dd data-entry-confirm="motivation">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>自己PR</dt>
+      <dd data-entry-confirm="selfPromotion">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>希望条件</dt>
+      <dd data-entry-confirm="preferredConditions">未入力</dd>
+    </div>
+    <div class={styles.confirmRow}>
+      <dt>質問・連絡事項</dt>
+      <dd data-entry-confirm="questions">未入力</dd>
     </div>
   </dl>
 

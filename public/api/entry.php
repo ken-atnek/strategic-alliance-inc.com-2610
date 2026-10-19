@@ -120,8 +120,8 @@ function normalizePhoneNumber(string $value): ?string
 function detectEntryEnvironment(string $scriptDirectory): ?bool
 {
     $path = '/' . trim(strtolower(str_replace('\\', '/', $scriptDirectory)), '/') . '/';
-    $isDemo = str_contains($path, '/demo-strategic-alliance/');
-    $isProduction = str_contains($path, '/strategic_2610/');
+    $isDemo = str_ends_with($path, '/tuna-pic.co.jp/public_html/demo-strategic-alliance/strategic_2610/api/');
+    $isProduction = str_ends_with($path, '/strategic-alliance-inc.com/public_html/strategic_2610/api/');
 
     return $isDemo === $isProduction ? null : $isDemo;
 }
@@ -397,6 +397,14 @@ if ($isTestEnvironment === null) {
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 $requestHost = strtolower((string) preg_replace('/:\d+$/', '', $_SERVER['HTTP_HOST'] ?? ''));
 $originHost = $origin !== '' ? strtolower((string) parse_url($origin, PHP_URL_HOST)) : '';
+$expectedHost = $isTestEnvironment
+    ? 'demo-strategic-alliance.tuna-pic.co.jp'
+    : 'strategic-alliance-inc.com';
+
+if ($requestHost !== $expectedHost) {
+    error_log('Entry form host does not match its deployment directory.');
+    sendJson(403, ['ok' => false, 'message' => '送信元を確認できませんでした。']);
+}
 
 if ($originHost !== '' && $requestHost !== '' && $originHost !== $requestHost) {
     sendJson(403, ['ok' => false, 'message' => '送信元を確認できませんでした。']);

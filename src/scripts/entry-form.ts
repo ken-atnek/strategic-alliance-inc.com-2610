@@ -3,7 +3,7 @@
  * URL: /src/scripts/entry-form.ts
  * Referenced in: /src/components/forms/EntryForm.astro
  * Created: 2026-10-06
- * Last updated: 2026-10-17
+ * Last updated: 2026-10-19
  * ======================================= */
 
 const stepNames: Record<string, string> = {
@@ -187,7 +187,7 @@ const initializeEntryForm = (entryForm: HTMLFormElement) => {
 
     if (field instanceof HTMLInputElement && field.type === "file") {
       return field.files?.[0]?.name
-        ? `${field.files[0].name} アップロード済み`
+        ? field.files[0].name
         : "未選択";
     }
 
